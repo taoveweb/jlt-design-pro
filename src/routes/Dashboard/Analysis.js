@@ -12,7 +12,8 @@ import {
   Tooltip,
   Menu,
   Dropdown,
-} from 'antd';
+  NumberInfo,
+} from 'jltd';
 import numeral from 'numeral';
 import {
   ChartCard,
@@ -26,7 +27,7 @@ import {
   TimelineChart,
 } from 'components/Charts';
 import Trend from 'components/Trend';
-import NumberInfo from 'components/NumberInfo';
+//import NumberInfo from 'components/NumberInfo';
 import { getTimeDistance } from '../../utils/utils';
 
 import styles from './Analysis.less';

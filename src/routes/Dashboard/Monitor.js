@@ -1,9 +1,9 @@
 import React, { PureComponent, Fragment } from 'react';
 import { connect } from 'dva';
-import { Row, Col, Card, Tooltip } from 'antd';
+import { Row, Col, Card, Tooltip, NumberInfo } from 'jltd';
 import numeral from 'numeral';
 import { Pie, WaterWave, Gauge, TagCloud } from 'components/Charts';
-import NumberInfo from 'components/NumberInfo';
+//import NumberInfo from 'components/NumberInfo';
 import CountDown from 'components/CountDown';
 import ActiveChart from 'components/ActiveChart';
 import Authorized from '../../utils/Authorized';

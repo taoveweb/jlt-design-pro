@@ -18,8 +18,9 @@ import {
   message,
   Badge,
   Divider,
-} from 'antd';
-import StandardTable from 'components/StandardTable';
+  StandardTable,
+} from 'jltd';
+//import StandardTable from 'components/StandardTable';
 import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 
 import styles from './TableList.less';
@@ -58,8 +59,8 @@ const CreateForm = Form.create()(props => {
   );
 });
 
-@connect(({ rule, loading }) => ({
-  rule,
+@connect(({ rulea, loading }) => ({
+  rulea,
   loading: loading.models.rule,
 }))
 @Form.create()
@@ -318,7 +319,7 @@ export default class TableList extends PureComponent {
 
   render() {
     const {
-      rule: { data },
+      rulea: { data },
       loading,
     } = this.props;
     const { selectedRows, modalVisible } = this.state;
