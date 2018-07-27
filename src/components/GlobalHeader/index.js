@@ -1,11 +1,22 @@
 import React, { PureComponent } from 'react';
-import { Menu, Icon, Spin, Tag, Dropdown, Avatar, Divider, Tooltip } from 'jltd';
+import {
+  Menu,
+  Icon,
+  Spin,
+  Tag,
+  Dropdown,
+  Avatar,
+  Divider,
+  Tooltip,
+  NoticeIcon,
+  HeaderSearch,
+} from 'jltd';
 import moment from 'moment';
 import groupBy from 'lodash/groupBy';
 import Debounce from 'lodash-decorators/debounce';
 import { Link } from 'dva/router';
-import NoticeIcon from '../NoticeIcon';
-import HeaderSearch from '../HeaderSearch';
+// import NoticeIcon from '../NoticeIcon';
+// import HeaderSearch from '../HeaderSearch';
 import styles from './index.less';
 
 export default class GlobalHeader extends PureComponent {

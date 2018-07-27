@@ -53,6 +53,7 @@ export default class HeaderSearch extends PureComponent {
     this.setState({ searchMode: true }, () => {
       const { searchMode } = this.state;
       if (searchMode) {
+        console.log(this.input);
         this.input.focus();
       }
     });
@@ -97,6 +98,7 @@ export default class HeaderSearch extends PureComponent {
           <Input
             placeholder={placeholder}
             ref={node => {
+              console.log(node, 'node');
               this.input = node;
             }}
             onKeyDown={this.onKeyDown}
