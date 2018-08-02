@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Layout, message, SiderMenu, GlobalHeader } from 'jltd';
+import { Layout, message, SiderMenu } from 'jltd';
 import DocumentTitle from 'react-document-title';
 import { connect } from 'dva';
 import { Route, Redirect, Switch, routerRedux } from 'dva/router';
@@ -8,13 +8,13 @@ import { ContainerQuery } from 'react-container-query';
 import classNames from 'classnames';
 import pathToRegexp from 'path-to-regexp';
 import { enquireScreen, unenquireScreen } from 'enquire-js';
-// import GlobalHeader from '../components/GlobalHeader';
+import GlobalHeader from '../components/GlobalHeader';
 // import SiderMenu from '../components/SiderMenu';
 import NotFound from '../routes/Exception/404';
 import { getRoutes } from '../utils/utils';
 import Authorized from '../utils/Authorized';
-// import { getMenuData } from '../common/menu';
-// import { queryMenu } from '../services/api';
+import { getMenuData } from '../common/menu';
+import { queryMenu } from '../services/api';
 import logo from '../assets/logo.svg';
 
 const { Content, Header, Footer } = Layout;
@@ -38,9 +38,9 @@ const getRedirect = item => {
   }
 };
 
-/* queryMenu().then(data => {
+queryMenu().then(data => {
   data.forEach(getRedirect);
-}); */
+});
 // getMenuData().forEach(getRedirect);
 
 /**
@@ -100,18 +100,14 @@ class BasicLayout extends React.PureComponent {
 
   state = {
     isMobile,
+    menuData: [],
   };
-
-  constructor(props) {
-    super(props);
-    props.menuData.forEach(getRedirect);
-  }
 
   getChildContext() {
     const { location, routerData } = this.props;
     return {
       location,
-      breadcrumbNameMap: getBreadcrumbNameMap(this.props.menuData, routerData),
+      breadcrumbNameMap: getBreadcrumbNameMap(this.state.menuData, routerData),
     };
   }
 
@@ -220,8 +216,6 @@ class BasicLayout extends React.PureComponent {
     } = this.props;
     const { isMobile: mb } = this.state;
     const bashRedirect = this.getBaseRedirect();
-
-    console.log(redirectData, 'redirectData');
     const layout = (
       <Layout>
         <Header style={{ padding: 0 }}>
@@ -245,7 +239,7 @@ class BasicLayout extends React.PureComponent {
             // If you do not have the Authorized parameter
             // you will be forced to jump to the 403 interface without permission
             Authorized={Authorized}
-            menuData={this.props.menuData}
+            menuData={this.state.menuData}
             collapsed={collapsed}
             location={location}
             isMobile={mb}
@@ -292,5 +286,4 @@ export default connect(({ user, global = {}, loading }) => ({
   collapsed: global.collapsed,
   fetchingNotices: loading.effects['global/fetchNotices'],
   notices: global.notices,
-  menuData: global.menuData,
 }))(BasicLayout);

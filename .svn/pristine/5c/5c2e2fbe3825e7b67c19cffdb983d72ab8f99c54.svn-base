@@ -2,7 +2,7 @@ import React, { createElement } from 'react';
 import { Spin } from 'jltd';
 import pathToRegexp from 'path-to-regexp';
 import Loadable from 'react-loadable';
-// import { getMenuData } from './menu';
+import { getMenuData } from './menu';
 import { formatter } from '../utils/utils';
 import { queryMenu } from '../services/api';
 
