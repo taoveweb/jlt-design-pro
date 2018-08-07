@@ -15,7 +15,7 @@ import {
 } from 'jltd';
 import { connect } from 'dva';
 // import FooterToolbar from 'components/FooterToolbar';
-import PageHeaderLayout from '../../layouts/PageHeaderLayout';
+import PageHeaderLayout from '../../../layouts/PageHeaderLayout';
 import TableForm from './TableForm';
 import styles from './style.less';
 

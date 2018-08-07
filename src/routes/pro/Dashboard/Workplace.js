@@ -6,7 +6,7 @@ import { Row, Col, Card, List, Avatar, EditableLinkGroup } from 'jltd';
 
 import { Radar } from 'components/Charts';
 // import EditableLinkGroup from 'components/EditableLinkGroup';
-import PageHeaderLayout from '../../layouts/PageHeaderLayout';
+import PageHeaderLayout from '../../../layouts/PageHeaderLayout';
 
 import styles from './Workplace.less';
 

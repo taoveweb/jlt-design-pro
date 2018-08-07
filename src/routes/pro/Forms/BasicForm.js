@@ -12,7 +12,7 @@ import {
   Icon,
   Tooltip,
 } from 'jltd';
-import PageHeaderLayout from '../../layouts/PageHeaderLayout';
+import PageHeaderLayout from '../../../layouts/PageHeaderLayout';
 import styles from './style.less';
 
 const FormItem = Form.Item;

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'dva';
 import { Form, Input, Button, Alert, Divider } from 'jltd';
 import { routerRedux } from 'dva/router';
-import { digitUppercase } from '../../../utils/utils';
+import { digitUppercase } from '../../../../utils/utils';
 import styles from './style.less';
 
 const formItemLayout = {

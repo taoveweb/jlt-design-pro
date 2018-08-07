@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { routerRedux, Route, Switch } from 'dva/router';
 import { connect } from 'dva';
 import { Input } from 'jltd';
-import PageHeaderLayout from '../../layouts/PageHeaderLayout';
-import { getRoutes } from '../../utils/utils';
+import PageHeaderLayout from '../../../layouts/PageHeaderLayout';
+import { getRoutes } from '../../../utils/utils';
 
 @connect()
 export default class SearchList extends Component {

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Button, Row, Col, Icon, Steps, Card, Result } from 'jltd';
 // import Result from 'components/Result';
-import PageHeaderLayout from '../../layouts/PageHeaderLayout';
+import PageHeaderLayout from '../../../layouts/PageHeaderLayout';
 
 const { Step } = Steps;
 

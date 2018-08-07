@@ -16,7 +16,7 @@ import {
   Avatar,
 } from 'jltd';
 
-import PageHeaderLayout from '../../layouts/PageHeaderLayout';
+import PageHeaderLayout from '../../../layouts/PageHeaderLayout';
 
 import styles from './BasicList.less';
 

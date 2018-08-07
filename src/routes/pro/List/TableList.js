@@ -20,8 +20,8 @@ import {
   Divider,
   StandardTable,
 } from 'jltd';
-//import StandardTable from 'components/StandardTable';
-import PageHeaderLayout from '../../layouts/PageHeaderLayout';
+// import StandardTable from 'components/StandardTable';
+import PageHeaderLayout from '../../../layouts/PageHeaderLayout';
 
 import styles from './TableList.less';
 
