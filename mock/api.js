@@ -294,19 +294,19 @@ export const getMenu = [
   {
     name: 'dashboard',
     icon: 'dashboard',
-    path: 'mdm/dashboard',
+    path: 'dashboard',
     children: [
       {
-        name: '分析页1',
+        name: '分析页',
         path: 'analysis',
       },
       {
-        name: '监控页2',
+        name: '监控页',
         path: 'monitor',
       },
       {
         name: '工作台',
-        path: 'mdm/dashboard',
+        path: 'workplace',
         // hideInBreadcrumb: true,
         // hideInMenu: true,
       },

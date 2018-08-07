@@ -13,6 +13,10 @@ export async function queryMenu() {
   return request('/api/menu');
 }
 
+export async  function queryMenuData() {
+  return request('/jlt-mdm-web/system/getMenu');
+}
+
 export async function queryRule(params) {
   return request(`/api/rule?${stringify(params)}`);
 }

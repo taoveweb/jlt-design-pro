@@ -2,10 +2,10 @@ import React, { PureComponent } from 'react';
 import moment from 'moment';
 import { connect } from 'dva';
 import { Link } from 'dva/router';
-import { Row, Col, Card, List, Avatar } from 'jltd';
+import { Row, Col, Card, List, Avatar, EditableLinkGroup } from 'jltd';
 
 import { Radar } from 'components/Charts';
-import EditableLinkGroup from 'components/EditableLinkGroup';
+// import EditableLinkGroup from 'components/EditableLinkGroup';
 import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 
 import styles from './Workplace.less';

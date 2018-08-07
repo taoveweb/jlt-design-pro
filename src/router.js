@@ -6,7 +6,7 @@ import { connect } from 'dva';
 import { getRouterData } from './common/router';
 import Authorized from './utils/Authorized';
 import { getQueryPath, formatter } from './utils/utils';
-import { queryMenu } from './services/api';
+import { queryMenu, queryMenuData } from './services/api';
 
 const { ConnectedRouter } = routerRedux;
 const { AuthorizedRoute } = Authorized;
@@ -27,6 +27,20 @@ class RouterConfiga extends React.Component {
       props.dispatch({ type: 'global/saveMennuData', payload: menuData });
       this.setState({ routerData: getRouterData(app, menuData) });
     });
+
+    /* queryMenuData().then(data => {
+      let paramData = null;
+      if (data === undefined) {
+        paramData = [];
+      } else {
+        paramData = data.data;
+      }
+
+      const menuData = formatterMenuData(paramData);
+      const changedMenu = changeMenus(menuData);
+      props.dispatch({ type: 'global/saveMennuData', payload: changedMenu });
+      this.setState({ routerData: getRouterData(app, changedMenu) });
+    }); */
   }
 
   render() {

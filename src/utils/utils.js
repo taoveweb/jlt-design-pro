@@ -190,11 +190,51 @@ export function formatter(data, parentPath = '/', parentAuthority) {
     const result = {
       ...item,
       path,
-      authority: item.authority || parentAuthority,
+      authority: 'user' || parentAuthority,
     };
     if (item.children) {
       result.children = formatter(item.children, `${parentPath}${item.path}/`, item.authority);
     }
     return result;
   });
+}
+
+export function formatterMenuData(data, parentPath = '/') {
+  return data.map(item => {
+    let { menuUrl } = item;
+    const tempAuthority = 'admin';
+    if (!isUrl(menuUrl)) {
+      menuUrl = parentPath + item.menuUrl;
+    }
+
+    const result = {
+      ...item,
+      menuUrl,
+
+      authority: tempAuthority,
+    };
+    if (item.children) {
+      result.children = formatterMenuData(item.children, `${parentPath}${item.menuUrl}/`);
+    }
+
+    return result;
+  });
+}
+
+export function changeMenus(tempMenus) {
+  if (tempMenus == null || tempMenus.length === 0) {
+    return [];
+  }
+  const menus = [];
+  for (let i = 0; i < tempMenus.length; i++) {
+    const tempMenu = tempMenus[i];
+    const menu = {};
+    menu.name = tempMenu.menuName;
+    menu.path = tempMenu.menuUrl;
+    menu.icon = tempMenu.iconClass;
+    menu.authority = tempMenu.authority;
+    menu.children = changeMenus(tempMenu.children);
+    menus.push(menu);
+  }
+  return menus;
 }

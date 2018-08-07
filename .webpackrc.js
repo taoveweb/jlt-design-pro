@@ -29,4 +29,16 @@ export default {
   disableDynamicImport: false,
   publicPath: '/',
   hash: true,
+
+  proxy: {
+    '/jlt-mdm-web': {
+      target: 'http://localhost:9094/jlt-mdm-web',
+      // target: 'http://gr2.interinfo.cc:33210/',
+      // pathRewrite: { '^/billing-api': '/billing' },
+      // target: 'http://192.168.0.193:8083/billing-api/',
+      // target: process.env.TARGET_URL || 'http://127.0.0.1:9100/',
+      changeOrigin: true,
+      pathRewrite: { '^/jlt-mdm-web': '' },
+    },
+  },
 };

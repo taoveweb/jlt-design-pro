@@ -11,9 +11,10 @@ import {
   Input,
   Select,
   Popover,
+  FooterToolbar,
 } from 'jltd';
 import { connect } from 'dva';
-import FooterToolbar from 'components/FooterToolbar';
+// import FooterToolbar from 'components/FooterToolbar';
 import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 import TableForm from './TableForm';
 import styles from './style.less';

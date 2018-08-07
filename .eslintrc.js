@@ -32,6 +32,8 @@ module.exports = {
         prop: 'ignore',
       },
     ],
+    'no-console': [0],
+    'no-plusplus': [0],
     'no-else-return': [0],
     'no-restricted-syntax': [0],
     'import/no-extraneous-dependencies': [0],

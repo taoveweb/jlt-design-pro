@@ -1,12 +1,23 @@
 import React, { PureComponent } from 'react';
 import moment from 'moment';
 import { connect } from 'dva';
-import { Row, Col, Form, Card, Select, List, TagSelect } from 'jltd';
+import {
+  Row,
+  Col,
+  Form,
+  Card,
+  Select,
+  List,
+  TagSelect,
+  Ellipsis,
+  AvatarList,
+  StandardFormRow,
+} from 'jltd';
 
 // import TagSelect from 'components/TagSelect';
-import AvatarList from 'components/AvatarList';
-import Ellipsis from 'components/Ellipsis';
-import StandardFormRow from 'components/StandardFormRow';
+// import AvatarList from 'components/AvatarList';
+// import Ellipsis from 'components/Ellipsis';
+// import StandardFormRow from 'components/StandardFormRow';
 
 import styles from './Projects.less';
 

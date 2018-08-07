@@ -3,8 +3,8 @@ import { Spin } from 'jltd';
 import pathToRegexp from 'path-to-regexp';
 import Loadable from 'react-loadable';
 // import { getMenuData } from './menu';
-import { formatter } from '../utils/utils';
-import { queryMenu } from '../services/api';
+// import { formatter } from '../utils/utils';
+// import { queryMenu } from '../services/api';
 
 let routerDataCache;
 let routerDataGlobal = {};
@@ -72,7 +72,7 @@ function getFlatMenuData(menus) {
   return keys;
 }
 
-export const getRouterData = (app, menuData) => {
+export const getRouterData = (app, menuDatas) => {
   const routerConfig = {
     '/': {
       component: dynamicWrapper(app, ['user', 'login'], () => import('../layouts/BasicLayout')),
@@ -105,6 +105,7 @@ export const getRouterData = (app, menuData) => {
       name: '分步表单（确认转账信息）',
       component: dynamicWrapper(app, ['form'], () => import('../routes/Forms/StepForm/Step2')),
     },
+
     '/form/step-form/result': {
       name: '分步表单（完成）',
       component: dynamicWrapper(app, ['form'], () => import('../routes/Forms/StepForm/Step3')),
@@ -149,6 +150,7 @@ export const getRouterData = (app, menuData) => {
     },
     '/exception/403': {
       component: dynamicWrapper(app, [], () => import('../routes/Exception/403')),
+      authority: 'admin',
     },
     '/exception/404': {
       component: dynamicWrapper(app, [], () => import('../routes/Exception/404')),
@@ -181,6 +183,7 @@ export const getRouterData = (app, menuData) => {
 
   // Route configuration data
   // eg. {name,authority ...routerConfig }
+  const menuData = getFlatMenuData(menuDatas);
   const routerData = {};
   // The route matches the menu
   Object.keys(routerConfig).forEach(path => {

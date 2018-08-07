@@ -13,11 +13,12 @@ import { enquireScreen, unenquireScreen } from 'enquire-js';
 import NotFound from '../routes/Exception/404';
 import { getRoutes } from '../utils/utils';
 import Authorized from '../utils/Authorized';
+
 // import { getMenuData } from '../common/menu';
 // import { queryMenu } from '../services/api';
 import logo from '../assets/logo.svg';
 
-const { Content, Header, Footer } = Layout;
+const { Content, Header } = Layout;
 const { AuthorizedRoute, check } = Authorized;
 
 /**
@@ -93,25 +94,32 @@ enquireScreen(b => {
 });
 
 class BasicLayout extends React.PureComponent {
+  static propTypes = {
+    menuData: PropTypes.array,
+  };
+
   static childContextTypes = {
     location: PropTypes.object,
     breadcrumbNameMap: PropTypes.object,
   };
 
-  state = {
-    isMobile,
+  static defaultProps = {
+    menuData: [],
   };
 
   constructor(props) {
     super(props);
+    this.state = {
+      isMobile,
+    };
     props.menuData.forEach(getRedirect);
   }
 
   getChildContext() {
-    const { location, routerData } = this.props;
+    const { location, routerData, menuData } = this.props;
     return {
       location,
-      breadcrumbNameMap: getBreadcrumbNameMap(this.props.menuData, routerData),
+      breadcrumbNameMap: getBreadcrumbNameMap(menuData, routerData),
     };
   }
 
@@ -193,9 +201,7 @@ class BasicLayout extends React.PureComponent {
       return;
     }
     if (key === 'logout') {
-      dispatch({
-        type: 'login/logout',
-      });
+      window.location.href = '/jlt-mdm-web/logout';
     }
   };
 
@@ -217,11 +223,11 @@ class BasicLayout extends React.PureComponent {
       routerData,
       match,
       location,
+      menuData,
     } = this.props;
     const { isMobile: mb } = this.state;
     const bashRedirect = this.getBaseRedirect();
-
-    console.log(redirectData, 'redirectData');
+    console.log(getRoutes(match.path, routerData), 'getRoutes(match.path, routerDatass)');
     const layout = (
       <Layout>
         <Header style={{ padding: 0 }}>
@@ -245,7 +251,7 @@ class BasicLayout extends React.PureComponent {
             // If you do not have the Authorized parameter
             // you will be forced to jump to the 403 interface without permission
             Authorized={Authorized}
-            menuData={this.props.menuData}
+            menuData={menuData}
             collapsed={collapsed}
             location={location}
             isMobile={mb}
@@ -256,8 +262,7 @@ class BasicLayout extends React.PureComponent {
               {redirectData.map(item => (
                 <Redirect key={item.from} exact from={item.from} to={item.to} />
               ))}
-              {getRoutes(match.path, routerData).map(item => {
-                // console.log(item,'item')
+              {getRoutes(match.path, routerData).map(item => { 
                 return (
                   <AuthorizedRoute
                     key={item.key}

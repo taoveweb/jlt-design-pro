@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { MiniArea } from 'components/Charts';
-import NumberInfo from 'components/NumberInfo';
+import { NumberInfo } from 'jltd';
 
 import styles from './index.less';
 

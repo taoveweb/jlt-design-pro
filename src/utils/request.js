@@ -80,9 +80,7 @@ export default function request(url, options) {
       const { dispatch } = store;
       const status = e.name;
       if (status === 401) {
-        dispatch({
-          type: 'login/logout',
-        });
+        window.location.href = '/jlt-mdm-web/logout';
         return;
       }
       if (status === 403) {
@@ -96,5 +94,10 @@ export default function request(url, options) {
       if (status >= 404 && status < 422) {
         dispatch(routerRedux.push('/exception/404'));
       }
+
+      /**if(status === 'TypeError'){
+        window.location.href = '/jlt-mdm-web/logout';
+        return;
+      }**/
     });
 }
