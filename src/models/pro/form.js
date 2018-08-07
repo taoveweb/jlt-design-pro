@@ -1,6 +1,6 @@
 import { routerRedux } from 'dva/router';
 import { message } from 'jltd';
-import { fakeSubmitForm } from '../services/api';
+import { fakeSubmitForm } from '../../services/api';
 
 export default {
   namespace: 'form',
