@@ -1,4 +1,4 @@
-import { queryActivities } from '../../services/api';
+import { queryActivities } from '../../services/pro/api';
 
 export default {
   namespace: 'activities',

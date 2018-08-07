@@ -1,5 +1,5 @@
 import { stringify } from 'qs';
-import request from '../utils/request';
+import request from '../../utils/request';
 
 export async function queryProjectNotice() {
   return request('/api/project/notice');
@@ -13,7 +13,7 @@ export async function queryMenu() {
   return request('/api/menu');
 }
 
-export async  function queryMenuData() {
+export async function queryMenuData() {
   return request('/jlt-mdm-web/system/getMenu');
 }
 
