@@ -7,7 +7,6 @@ import { getRouterData } from './common/router';
 import Authorized from './utils/Authorized';
 import { getQueryPath, formatter } from './utils/utils';
 import { queryMenu, queryMenuData } from './services/pro/api';
-
 const { ConnectedRouter } = routerRedux;
 const { AuthorizedRoute } = Authorized;
 

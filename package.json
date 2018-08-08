@@ -69,7 +69,7 @@
     "gh-pages": "^1.0.0",
     "husky": "^0.14.3",
     "immutability-helper": "^2.7.1",
-    "jltd": "^1.1.611",
+    "jltd": "^1.1.613",
     "lint-staged": "^7.2.0",
     "mockjs": "^1.0.1-beta3",
     "prettier": "1.13.5",
