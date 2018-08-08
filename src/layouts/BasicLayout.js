@@ -8,14 +8,10 @@ import { ContainerQuery } from 'react-container-query';
 import classNames from 'classnames';
 import pathToRegexp from 'path-to-regexp';
 import { enquireScreen, unenquireScreen } from 'enquire-js';
-// import GlobalHeader from '../components/GlobalHeader';
-// import SiderMenu from '../components/SiderMenu';
 import NotFound from '../routes/pro/Exception/404';
 import { getRoutes } from '../utils/utils';
 import Authorized from '../utils/Authorized';
 
-// import { getMenuData } from '../common/menu';
-// import { queryMenu } from '../services/api';
 import logo from '../assets/logo.svg';
 
 const { Content, Header } = Layout;
@@ -270,7 +266,7 @@ class BasicLayout extends React.PureComponent {
                     component={item.component}
                     exact={item.exact}
                     authority={item.authority}
-                    redirectPath="/exception/403"
+                    // redirectPath="/exception/403"
                   />
                 );
               })}

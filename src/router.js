@@ -6,6 +6,7 @@ import { connect } from 'dva';
 import { getRouterData } from './common/router';
 import Authorized from './utils/Authorized';
 import { getQueryPath, formatter } from './utils/utils';
+// eslint-disable-next-line
 import { queryMenu, queryMenuData } from './services/pro/api';
 const { ConnectedRouter } = routerRedux;
 const { AuthorizedRoute } = Authorized;
@@ -45,7 +46,14 @@ class RouterConfiga extends React.Component {
   render() {
     const { routerData } = this.state;
     const { history } = this.props;
-    if (!routerData) return <div>加载中</div>;
+    if (!routerData)
+      return (
+        <div
+          style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: 30 }}
+        >
+          加载中
+        </div>
+      );
     const UserLayout = routerData['/user'].component;
     const BasicLayout = routerData['/'].component;
     return (
