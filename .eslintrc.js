@@ -10,6 +10,13 @@ module.exports = {
     jasmine: true,
   },
   rules: {
+    'react/no-danger': [0],
+    'spaced-comment': [0],
+    'react/no-multi-comp': [0],
+    'lines-between-class-members': [0],
+    'react/sort-comp': [0],
+    'react/destructuring-assignment': [0],
+    'linebreak-style': [0],
     'generator-star-spacing': [0],
     'consistent-return': [0],
     'react/forbid-prop-types': [0],
