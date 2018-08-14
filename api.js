@@ -269,8 +269,7 @@ module.exports = listCacheDelete;
     path: 'basic'
   }, {
     name: '高级详情页',
-    path: 'advanced',
-    authority: 'admin'
+    path: 'advanced'
   }]
 }, {
   name: '结果页',
