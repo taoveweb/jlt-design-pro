@@ -89,7 +89,6 @@ export default [
       {
         name: '高级详情页',
         path: 'advanced',
-        authority: 'admin',
       },
     ],
   },

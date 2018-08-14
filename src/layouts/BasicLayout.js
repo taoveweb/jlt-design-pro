@@ -223,7 +223,6 @@ class BasicLayout extends React.PureComponent {
     } = this.props;
     const { isMobile: mb } = this.state;
     const bashRedirect = this.getBaseRedirect();
-    console.log(getRoutes(match.path, routerData), 'getRoutes(match.path, routerDatass)');
     const layout = (
       <Layout>
         <Header style={{ padding: 0 }}>

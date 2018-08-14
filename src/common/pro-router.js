@@ -87,7 +87,6 @@ export default (dynamicWrapper, app) => {
     },
     '/exception/403': {
       component: dynamicWrapper(app, [], () => import('../routes/pro/Exception/403')),
-      authority: 'admin',
     },
     '/exception/404': {
       component: dynamicWrapper(app, [], () => import('../routes/pro/Exception/404')),
