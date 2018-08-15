@@ -275,10 +275,12 @@ module.exports = listCacheDelete;
   name: '结果页',
   icon: 'check-circle-o',
   path: 'result',
-  children: [{
+  children: [
+  /* {
     name: '成功',
-    path: 'success'
-  }, {
+    path: 'success',
+  }, */
+  {
     name: '失败',
     path: 'fail'
   }]
