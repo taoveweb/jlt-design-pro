@@ -97,10 +97,10 @@ export default [
     icon: 'check-circle-o',
     path: 'result',
     children: [
-      {
+      /* {
         name: '成功',
         path: 'success',
-      },
+      }, */
       {
         name: '失败',
         path: 'fail',

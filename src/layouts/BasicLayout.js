@@ -265,7 +265,7 @@ class BasicLayout extends React.PureComponent {
                     component={item.component}
                     exact={item.exact}
                     authority={item.authority}
-                    // redirectPath="/exception/403"
+                    redirectPath="/exception/403"
                   />
                 );
               })}

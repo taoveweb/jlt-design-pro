@@ -6,6 +6,9 @@ import { connect } from 'dva';
 import { getRouterData } from './common/router';
 import Authorized from './utils/Authorized';
 import { getQueryPath, formatter } from './utils/utils';
+import { setAuthority } from './utils/authority';
+
+setAuthority('admin');
 // eslint-disable-next-line
 import { queryMenu, queryMenuData } from './services/pro/api';
 const { ConnectedRouter } = routerRedux;

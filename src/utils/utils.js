@@ -190,7 +190,7 @@ export function formatter(data, parentPath = '/', parentAuthority) {
     const result = {
       ...item,
       path,
-      authority: 'user' || parentAuthority,
+      authority: 'admin' || parentAuthority,
     };
     if (item.children) {
       result.children = formatter(item.children, `${parentPath}${item.path}/`, item.authority);
