@@ -8,10 +8,10 @@ import { ContainerQuery } from 'react-container-query';
 import classNames from 'classnames';
 import pathToRegexp from 'path-to-regexp';
 import { enquireScreen, unenquireScreen } from 'enquire-js';
+import store from 'store';
 import NotFound from '../routes/pro/Exception/404';
 import { getRoutes } from '../utils/utils';
 import Authorized from '../utils/Authorized';
-
 import logo from '../assets/logo.svg';
 
 const { Content, Header } = Layout;
@@ -108,7 +108,6 @@ class BasicLayout extends React.PureComponent {
     this.state = {
       isMobile,
     };
-    props.menuData.forEach(getRedirect);
   }
 
   getChildContext() {
@@ -138,7 +137,7 @@ class BasicLayout extends React.PureComponent {
   getPageTitle() {
     const { routerData, location } = this.props;
     const { pathname } = location;
-    let title = 'Ant Design Pro';
+    let title = 'jlt Design Pro';
     let currRouterData = null;
     // match params path
     Object.keys(routerData).forEach(key => {
@@ -147,7 +146,7 @@ class BasicLayout extends React.PureComponent {
       }
     });
     if (currRouterData && currRouterData.name) {
-      title = `${currRouterData.name} - Ant Design Pro`;
+      title = `${currRouterData.name} - jlt Design Pro`;
     }
     return title;
   }
@@ -197,7 +196,11 @@ class BasicLayout extends React.PureComponent {
       return;
     }
     if (key === 'logout') {
-      window.location.href = '/jlt-mdm-web/logout';
+      store.remove('menuData');
+      dispatch({
+        type: 'login/logout',
+      });
+      //  window.location.href = '/jlt-mdm-web/logout';
     }
   };
 
@@ -222,7 +225,10 @@ class BasicLayout extends React.PureComponent {
       menuData,
     } = this.props;
     const { isMobile: mb } = this.state;
-    const bashRedirect = this.getBaseRedirect();
+    const bashRedirect = this.getBaseRedirect() || '/';
+
+    menuData.forEach(getRedirect);
+
     const layout = (
       <Layout>
         <Header style={{ padding: 0 }}>
@@ -254,21 +260,23 @@ class BasicLayout extends React.PureComponent {
           />
           <Content style={{ margin: '24px 24px 0', height: '100%' }}>
             <Switch>
-              {redirectData.map(item => (
-                <Redirect key={item.from} exact from={item.from} to={item.to} />
-              ))}
-              {getRoutes(match.path, routerData).map(item => {
-                return (
-                  <AuthorizedRoute
-                    key={item.key}
-                    path={item.path}
-                    component={item.component}
-                    exact={item.exact}
-                    authority={item.authority}
-                    redirectPath="/exception/403"
-                  />
-                );
-              })}
+              {menuData.length > 0 &&
+                redirectData.map(item => (
+                  <Redirect key={item.from} exact from={item.from} to={item.to} />
+                ))}
+              {menuData.length > 0 &&
+                getRoutes(match.path, routerData).map(item => {
+                  return (
+                    <AuthorizedRoute
+                      key={item.key}
+                      path={item.path}
+                      component={item.component}
+                      exact={item.exact}
+                      authority={item.authority}
+                      redirectPath="/exception/403"
+                    />
+                  );
+                })}
               <Redirect exact from="/" to={bashRedirect} />
               <Route render={NotFound} />
             </Switch>
@@ -293,4 +301,5 @@ export default connect(({ user, global = {}, loading }) => ({
   fetchingNotices: loading.effects['global/fetchNotices'],
   notices: global.notices,
   menuData: global.menuData,
+  routerData: global.routerData,
 }))(BasicLayout);

@@ -1,3 +1,5 @@
+import store from 'store';
+
 import { queryNotices } from '../services/pro/api';
 
 export default {
@@ -6,7 +8,8 @@ export default {
   state: {
     collapsed: false,
     notices: [],
-    menuData: [],
+    menuData: store.get('menuData') || [],
+    routerData: {},
   },
 
   effects: {
@@ -36,9 +39,11 @@ export default {
 
   reducers: {
     saveMennuData(state, { payload }) {
+      store.set('menuData', payload.menuData);
       return {
         ...state,
-        menuData: payload,
+        menuData: payload.menuData,
+        routerData: payload.routerData,
       };
     },
     changeLayoutCollapsed(state, { payload }) {

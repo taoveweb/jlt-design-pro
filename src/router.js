@@ -15,19 +15,28 @@ const { ConnectedRouter } = routerRedux;
 const { AuthorizedRoute } = Authorized;
 
 @connect(({ global }) => {
-  return global;
+  return { global };
 })
 class RouterConfiga extends React.Component {
   constructor(props) {
     super(props);
-    const { app } = this.props;
+    const { app, global } = this.props;
     this.state = {
-      routerData: '',
+      routerData: getRouterData(app, global.menuData),
     };
+
+    //刷新从cookie中读取
+    props.dispatch({
+      type: 'global/saveMennuData',
+      payload: { menuData: global.menuData, routerData: getRouterData(app, global.menuData) },
+    });
 
     queryMenu().then(data => {
       const menuData = formatter(data);
-      props.dispatch({ type: 'global/saveMennuData', payload: menuData });
+      props.dispatch({
+        type: 'global/saveMennuData',
+        payload: { menuData, routerData: getRouterData(app, menuData) },
+      });
       this.setState({ routerData: getRouterData(app, menuData) });
     });
 
@@ -49,14 +58,7 @@ class RouterConfiga extends React.Component {
   render() {
     const { routerData } = this.state;
     const { history } = this.props;
-    if (!routerData)
-      return (
-        <div
-          style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: 30 }}
-        >
-          加载中
-        </div>
-      );
+
     const UserLayout = routerData['/user'].component;
     const BasicLayout = routerData['/'].component;
     return (

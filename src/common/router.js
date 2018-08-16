@@ -42,16 +42,14 @@ const dynamicWrapper = (app, models, component) => {
       if (!routerDataCache) {
         routerDataCache = routerDataGlobal;
       }
-      return component()
-        .then(raw => {
-          const Component = raw.default || raw;
-          return props =>
-            createElement(Component, {
-              ...props,
-              routerData: routerDataCache,
-            });
-        })
-        .catch(err => console.error(err));
+      return component().then(raw => {
+        const Component = raw.default || raw;
+        return props =>
+          createElement(Component, {
+            ...props,
+            routerData: routerDataCache,
+          });
+      });
     },
     loading: () => {
       return <Spin size="large" className="global-spin" />;

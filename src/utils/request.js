@@ -80,7 +80,9 @@ export default function request(url, options) {
       const { dispatch } = store;
       const status = e.name;
       if (status === 401) {
-        window.location.href = '/jlt-mdm-web/logout';
+        dispatch({
+          type: 'login/logout',
+        });
         return;
       }
       if (status === 403) {
