@@ -2674,7 +2674,7 @@ const proxy = {
   },
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (noProxy ? {} : Object(__WEBPACK_IMPORTED_MODULE_6_roadhog_api_doc__["delay"])(proxy, 2000));
+/* harmony default export */ __webpack_exports__["a"] = (noProxy ? {} : Object(__WEBPACK_IMPORTED_MODULE_6_roadhog_api_doc__["delay"])(proxy, 0));
 
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("FN88")))
 
