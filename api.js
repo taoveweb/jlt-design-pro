@@ -275,12 +275,10 @@ module.exports = listCacheDelete;
   name: '结果页',
   icon: 'check-circle-o',
   path: 'result',
-  children: [
-  /* {
+  children: [{
     name: '成功',
-    path: 'success',
-  }, */
-  {
+    path: 'success'
+  }, {
     name: '失败',
     path: 'fail'
   }]
@@ -2676,7 +2674,7 @@ const proxy = {
   },
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (noProxy ? {} : Object(__WEBPACK_IMPORTED_MODULE_6_roadhog_api_doc__["delay"])(proxy, 0));
+/* harmony default export */ __webpack_exports__["a"] = (noProxy ? {} : Object(__WEBPACK_IMPORTED_MODULE_6_roadhog_api_doc__["delay"])(proxy, 2000));
 
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("FN88")))
 
